@@ -18,8 +18,8 @@ export function Projects() {
                 </a>
                 <div className="mt-2">
                   <p className="text-sm">
-                    You're looking at my portfolio website now! I wanted to extend LinkedIn profile with a site that
-                    showcases my personality, design skills, resume, and side projects.
+                    You're looking at my portfolio website now! I wanted to created a website that
+                    showcases my personality and my side projects. I hope you like the night sky theme!
                   </p>
                 </div>
                 <div className="mt-2">
