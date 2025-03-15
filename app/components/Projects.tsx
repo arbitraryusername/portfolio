@@ -13,8 +13,8 @@ export function Projects() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-blue-300">Portfolio</h3>
-                <a href="#" className="text-yellow-400 hover:underline">
-                  Repository Link Will Go Here
+                <a href="https://github.com/arbitraryusername/portfolio/" className="text-yellow-400 hover:underline">
+                    View Code on GitHub
                 </a>
                 <div className="mt-2">
                   <p className="text-sm">
@@ -24,7 +24,7 @@ export function Projects() {
                 </div>
                 <div className="mt-2">
                   <h4 className="text-lg font-medium">Tech Highlights</h4>
-                  <p>Typescript, React, Tailwind CSS</p>
+                  <p>AWS Amplify, React, Next.js, Typescript, Tailwind</p>
                 </div>
               </div>
 
