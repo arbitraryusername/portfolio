@@ -13,9 +13,17 @@ export function Projects() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-blue-300">Portfolio</h3>
-                <a href="https://github.com/arbitraryusername/portfolio/" className="text-yellow-400 hover:underline">
+                <div className="flex items-center">
+                  <Code className="w-5 h-5 mr-2 text-yellow-400" />
+                  <a
+                    href="https://github.com/arbitraryusername/portfolio/"
+                    className="text-yellow-400 hover:underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     View Code on GitHub
-                </a>
+                  </a>
+                </div>
                 <div className="mt-2">
                   <p className="text-sm">
                     You're looking at my portfolio website now! I wanted to created a website that
