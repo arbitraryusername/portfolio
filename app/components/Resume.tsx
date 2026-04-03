@@ -67,9 +67,9 @@ export function Resume() {
         <Cloud className="w-10 h-10 md:w-12 md:h-12 text-blue-300 mb-4" />
         <h3 className="text-xl md:text-2xl font-semibold mb-2 text-center text-blue-300">Cloud/DevOps</h3>
         <ul className="list-disc text-blue-100 text-left pl-4">
-          <li>Azure VMs/Blob/IoT</li>
-          <li>CircleCI, Jenkins</li>
-          <li>Docker Scripting</li>
+          <li>Azure: VMs, Blob, IoT</li>
+          <li>AWS: EKS, RDS, S3</li>
+          <li>Docker, CircleCI, DataDog</li>
         </ul>
       </div>
       <div className="bg-gray-800 bg-opacity-50 p-4 md:p-6 rounded-lg flex flex-col items-center">
