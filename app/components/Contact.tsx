@@ -27,8 +27,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="text-xl hover:text-yellow-400 transition-colors duration-300"
               >
-                <span className="whitespace-nowrap">linkedin.com/in/</span>
-                <span className="whitespace-nowrap">craig-w-pitcher</span>
+                <span className="whitespace-nowrap">message me on LinkedIn</span>
               </a>
             </div>
           </div>

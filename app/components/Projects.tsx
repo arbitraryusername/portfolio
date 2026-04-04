@@ -38,7 +38,7 @@ export function Projects() {
 
               <div>
                 <h3 className="text-2xl font-semibold mb-2 text-blue-300">Accessible Weather Maps</h3>
-                <div className="flex items-center mb-2">
+                {/* <div className="flex items-center mb-2">
                   <Cloud className="w-5 h-5 mr-2 text-yellow-400" />
                   <a
                     href="https://weathermaphelper.azurewebsites.net"
@@ -48,7 +48,7 @@ export function Projects() {
                   >
                     Use App
                   </a>
-                </div>
+                </div> */}
                 <div className="flex items-center">
                   <Code className="w-5 h-5 mr-2 text-yellow-400" />
                   <a
