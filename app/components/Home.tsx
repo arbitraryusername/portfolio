@@ -4,27 +4,27 @@ export function Home() {
   return (
     <div className="text-blue-100 flex flex-col justify-start md:justify-center min-h-screen pt-20 md:pt-0">
       <div className="relative z-20 text-center mt-4 md:mt-0 flex flex-col h-full">
-        <h1 className="text-4xl md:text-6xl font-bold mb-3 md:mb-4 text-blue-100">Craig Pitcher</h1>
-        <h2 className="text-xl md:text-4xl text-yellow-400 mb-4 md:mb-6">Expert Web Developer</h2>
+        <h1 className="text-4xl md:text-6xl font-bold mb-2 md:mb-4 text-blue-100">Craig Pitcher</h1>
+        <h2 className="text-2xl md:text-4xl text-yellow-400 mb-4 md:mb-6">Expert Web Developer</h2>
         {/* <h3 className="text-xl md:text-xl text-blue-200 mb-6">Over ten years experience designing and developing web clients, servers, and databases</h3> */}
-        <div className="overflow-y-auto max-h-[calc(100vh-250px)] mt-4 pb-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl">
+        <div className="overflow-y-auto max-h-[calc(100vh-250px)] mt-4 pb-4 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto items-center justify-items-center">
+            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl max-w-[350px] md:max-w-none w-full">
               <Database className="w-10 h-10 text-blue-300 mb-2" />
               <h3 className="text-xl font-semibold text-blue-300">Database Modeling</h3>
               <p className="text-sm text-center text-blue-100">SQL, NoSQL</p>
             </div>
-            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl">
+            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl max-w-[350px] md:max-w-none w-full">
               <Code className="w-10 h-10 text-blue-300 mb-2" />
               <h3 className="text-xl font-semibold text-blue-300">Best Practice Coding</h3>
               <p className="text-sm text-center text-blue-100">Frontend, Backend</p>
             </div>
-            {/* <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl">
+            {/* <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl max-w-[350px] md:max-w-none w-full">
               <Rocket className="w-10 h-10 text-blue-300 mb-2" />
               <h3 className="text-xl font-semibold text-blue-300">Quality Guaranteed</h3>
               <p className="text-sm text-center text-blue-100">Performant, Scalable, Secure</p>
             </div> */}
-            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl">
+            <div className="flex flex-col items-center p-4 bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-xl max-w-[350px] md:max-w-none w-full">
               <Cloud className="w-10 h-10 text-blue-300 mb-2" />
               <h3 className="text-xl font-semibold text-blue-300">Cloud Scaling</h3>
               <p className="text-sm text-center text-blue-100">AWS, Azure</p>

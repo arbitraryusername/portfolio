@@ -69,7 +69,7 @@ export function Resume() {
         <ul className="list-disc text-blue-100 text-left pl-4">
           <li>Azure: VMs, Blob, IoT</li>
           <li>AWS: EKS, RDS, S3</li>
-          <li>Docker, CircleCI, DataDog</li>
+          <li>Docker, CircleCI</li>
         </ul>
       </div>
       <div className="bg-gray-800 bg-opacity-50 p-4 md:p-6 rounded-lg flex flex-col items-center">
