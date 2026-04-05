@@ -6,11 +6,15 @@ interface Firefly {
   x: number
   y: number
   size: number
-  speedX: number
-  speedY: number
+  vx: number
+  vy: number
   brightness: number
   color: string
   flickerOffset: number
+  phaseOffset: number
+  isExtraBright: boolean
+  glowDuration: number
+  glowTimer: number
 }
 
 export function FireflyBackground() {
@@ -32,51 +36,103 @@ export function FireflyBackground() {
     window.addEventListener("resize", resizeCanvas)
 
     const fireflies: Firefly[] = []
-    const fireflyCount = 80
+    const fireflyCount = 70 // Increased count for better sweeping effect
 
     for (let i = 0; i < fireflyCount; i++) {
       fireflies.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: Math.random() * 0.5 - 0.25,
-        speedY: Math.random() * 0.5 - 0.25,
-        brightness: 0,
-        color: Math.random() > 0.5 ? "#4a9ff5" : "#f5dd4a",
-        flickerOffset: Math.random() * 1.625, // Total cycle is 1.625 seconds
+        size: Math.random() * 1.5 + 1.1, // Slightly smaller, more delicate
+        vx: (Math.random() - 0.5) * 0.2, // Base velocity
+        vy: (Math.random() - 0.5) * 0.2,
+        brightness: 1,
+        color: Math.random() > 0.5 ? "#4a9ff5" : "#f5dd4a", // Colors without alpha (we'll use globalAlpha)
+        flickerOffset: Math.random() * 2,
+        phaseOffset: Math.random() * Math.PI * 2,
+        isExtraBright: false,
+        glowDuration: 0,
+        glowTimer: 0,
       })
     }
 
+    let windAngle = Math.random() * Math.PI * 2
+    let targetWindAngle = windAngle
+    let windStrength = 0.5
+    let timeSinceLastWindChange = 0
+
     const animate = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      const seconds = time / 1000
+
+      // Update global wind direction very slowly
+      if (time - timeSinceLastWindChange > 8000 + Math.random() * 4000) {
+        targetWindAngle += (Math.random() - 0.5) * Math.PI * 0.5
+        timeSinceLastWindChange = time
+      }
+      windAngle += (targetWindAngle - windAngle) * 0.005
+
+      // Swirling force parameters
+      const swirlFrequency = 0.0002
+      const swirlScale = 0.005
 
       fireflies.forEach((firefly) => {
+        // Individual "floating" motion (Perlin-like simplicity)
+        const floatX = Math.sin(seconds * 0.5 + firefly.phaseOffset) * 0.1
+        const floatY = Math.cos(seconds * 0.3 + firefly.phaseOffset) * 0.1
+
+        // Global wind force
+        const windX = Math.cos(windAngle) * windStrength
+        const windY = Math.sin(windAngle) * windStrength
+
+        // Swirling effect based on position (creates local currents)
+        const swirl = Math.sin(firefly.x * swirlScale + seconds * swirlFrequency * 1000) * 0.2
+        const swirlX = -Math.sin(swirl) * 0.3
+        const swirlY = Math.cos(swirl) * 0.3
+
+        // Apply forces to velocity (with damping for weightlessness)
+        firefly.vx = (firefly.vx + windX * 0.01 + swirlX * 0.02 + floatX * 0.05) * 0.98
+        firefly.vy = (firefly.vy + windY * 0.01 + swirlY * 0.02 + floatY * 0.05) * 0.98
+
         // Update position
-        firefly.x += firefly.speedX
-        firefly.y += firefly.speedY
+        firefly.x += firefly.vx + windX * 0.2
+        firefly.y += firefly.vy + windY * 0.2
 
-        // Wrap around edges
-        firefly.x = (firefly.x + canvas.width) % canvas.width
-        firefly.y = (firefly.y + canvas.height) % canvas.height
+        // Wrap around edges with a buffer for smoothness
+        const margin = 50
+        if (firefly.x < -margin) firefly.x = canvas.width + margin
+        if (firefly.x > canvas.width + margin) firefly.x = -margin
+        if (firefly.y < -margin) firefly.y = canvas.height + margin
+        if (firefly.y > canvas.height + margin) firefly.y = -margin
 
-        // Calculate brightness based on time
-        const cycleTime = (time / 1000 + firefly.flickerOffset) % 1.625
-        if (cycleTime < 1) {
-          firefly.brightness = 1 // Full brightness for 1 second
-        } else if (cycleTime < 1.25) {
-          firefly.brightness = 1 - (cycleTime - 1) * 4 // Dim down over 0.25 seconds
-        } else if (cycleTime < 1.375) {
-          firefly.brightness = 0 // Fully dark for 0.125 seconds
-        } else {
-          firefly.brightness = (cycleTime - 1.375) * 4 // Dim up over 0.25 seconds
-        }
+        // Calculate a more graceful pulsing brightness
+        const pulse = Math.sin(seconds * 0.8 + firefly.flickerOffset * 5) * 0.5 + 0.5
+        firefly.brightness = pulse * 0.8
 
-        // Draw firefly
+        // Draw particle with a soft glow
+        ctx.save()
         ctx.beginPath()
         ctx.arc(firefly.x, firefly.y, firefly.size, 0, Math.PI * 2)
-        ctx.fillStyle = firefly.color
-        ctx.globalAlpha = firefly.brightness
+        
+        // Soft outer glow
+        const gradient = ctx.createRadialGradient(
+          firefly.x, firefly.y, 0,
+          firefly.x, firefly.y, firefly.size * 3
+        )
+        gradient.addColorStop(0, `${firefly.color}${Math.floor(firefly.brightness * 255).toString(16).padStart(2, '0')}`)
+        gradient.addColorStop(1, `${firefly.color}00`)
+
+        ctx.fillStyle = gradient
+        ctx.globalAlpha = 1
         ctx.fill()
+
+        // Inner core
+        ctx.beginPath()
+        ctx.arc(firefly.x, firefly.y, firefly.size * 0.6, 0, Math.PI * 2)
+        ctx.fillStyle = "#FFFFFF"
+        ctx.globalAlpha = firefly.brightness * 0.5
+        ctx.fill()
+        ctx.restore()
       })
 
       requestAnimationFrame(animate)
