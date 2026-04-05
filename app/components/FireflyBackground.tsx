@@ -35,8 +35,15 @@ export function FireflyBackground() {
     resizeCanvas()
     window.addEventListener("resize", resizeCanvas)
 
+    const getFireflyCount = () => {
+      const width = window.innerWidth
+      if (width >= 1280) return 110 // XL screens
+      if (width >= 1024) return 90  // Large screens
+      return 70                     // Default
+    }
+
     const fireflies: Firefly[] = []
-    const fireflyCount = 70 // Increased count for better sweeping effect
+    const fireflyCount = getFireflyCount() // Increased count for better sweeping effect
 
     for (let i = 0; i < fireflyCount; i++) {
       fireflies.push({

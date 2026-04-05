@@ -49,17 +49,17 @@ body {
   0%, 40%, 100% {
     box-shadow: 0 0 1px 1px rgba(147, 197, 253, 0.05);
     border-color: rgba(147, 197, 253, 0.3);
-    background-color: rgba(17, 24, 39, 0.3);
+    background-color: rgba(17, 24, 39, 0.1);
   }
   10% {
-    box-shadow: 0 0 6px 1px rgba(147, 197, 253, 0.55);
-    border-color: rgba(147, 197, 253, 0.15);
-    background-color: rgba(17, 24, 39, 0.5);
+    box-shadow: 0 0 3px 3px rgba(147, 197, 253, 0.55);
+    border-color: rgba(147, 197, 253, 0.3);
+    background-color: rgba(27, 34, 49, 0.4);
   }
   30% {
     box-shadow: 0 0 2px 1px rgba(147, 197, 253, 0.2);
-    border-color: rgba(147, 197, 253, 0.6s);
-    background-color: rgba(17, 24, 39, 0.3);
+    border-color: rgba(147, 197, 253, 0.4);
+    background-color: rgba(17, 24, 39, 0.1);
   }
 }
 
