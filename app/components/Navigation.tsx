@@ -7,9 +7,9 @@ interface NavigationProps {
 export function Navigation({ setCurrentSection }: NavigationProps) {
   const navItems = [
     { name: "Skills", icon: Cpu, section: "skills" },
-    { name: "Projects", icon: Lightbulb, section: "projects" },
     { name: "About", icon: User, section: "about" },
     { name: "Contact", icon: Mail, section: "contact" },
+    { name: "Projects", icon: Lightbulb, section: "projects" },
   ]
 
   return (

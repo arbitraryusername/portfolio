@@ -10,7 +10,7 @@ export function Contact() {
         </h2>
         
         <div className="max-w-4xl mx-auto px-4 md:px-0">
-          <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-center pb-32 md:pb-10">
             {/* Email Card (Width matched to 3-column grid) */}
             <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm py-4 px-6 md:p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] md:w-[32%] w-full">
               <Mail className="w-10 h-10 text-blue-300 mb-2 md:mb-4" />

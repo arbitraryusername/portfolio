@@ -69,8 +69,10 @@ export function Skills() {
           <Cpu className="w-8 h-8 mr-2 text-yellow-400" />
           Skills
         </h2>
-        <div className="max-w-5xl mx-auto px-4 md:px-12 overflow-y-auto max-h-[calc(100vh-180px)] pb-10">
-          <InfographicSummary />
+        <div className="max-w-5xl mx-auto px-4 md:px-12 overflow-y-auto max-h-[calc(100vh-180px)]">
+          <div className="pb-32 md:pb-10">
+            <InfographicSummary />
+          </div>
         </div>
       </div>
     </div>

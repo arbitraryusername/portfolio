@@ -8,7 +8,7 @@ export function Projects() {
           <Lightbulb className="w-8 h-8 mr-2 text-yellow-400" />
           Projects
         </h2>
-        <div className="max-w-4xl mx-auto overflow-y-auto max-h-[calc(100vh-180px)] px-2 sm:px-4 md:px-6 py-8 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto overflow-y-auto max-h-[calc(100vh-180px)] px-2 sm:px-4 md:px-6 pt-8 pb-32 md:pb-10 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
           <div className="max-w-2xl mx-auto">
             <div className="space-y-8">
               <div>
