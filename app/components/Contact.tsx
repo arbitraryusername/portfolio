@@ -10,11 +10,11 @@ export function Contact() {
         </h2>
         
         <div className="max-w-4xl mx-auto px-4 md:px-0">
-          <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-center">
             {/* Email Card (Width matched to 3-column grid) */}
-            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] md:w-[32%] w-full">
-              <Mail className="w-10 h-10 text-blue-300 mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-blue-300">Email</h3>
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm py-4 px-6 md:p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] md:w-[32%] w-full">
+              <Mail className="w-10 h-10 text-blue-300 mb-2 md:mb-4" />
+              <h3 className="text-xl font-semibold mb-1 md:mb-2 text-blue-300">Email</h3>
               <a
                 href="mailto:pitcher.craig@gmail.com"
                 className="text-lg hover:text-yellow-400 transition-colors duration-300"
@@ -24,9 +24,9 @@ export function Contact() {
             </div>
 
             {/* LinkedIn Card (Width matched to 3-column grid) */}
-            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] md:w-[32%] w-full">
-              <Linkedin className="w-10 h-10 text-blue-300 mb-4" />
-              <h3 className="text-xl font-semibold mb-2 text-blue-300 text-nowrap">LinkedIn</h3>
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm py-4 px-6 md:p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] md:w-[32%] w-full">
+              <Linkedin className="w-10 h-10 text-blue-300 mb-2 md:mb-4" />
+              <h3 className="text-xl font-semibold mb-1 md:mb-2 text-blue-300 text-nowrap">LinkedIn</h3>
               <a
                 href="https://www.linkedin.com/in/craig-w-pitcher/"
                 target="_blank"

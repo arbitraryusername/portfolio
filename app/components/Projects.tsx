@@ -6,7 +6,7 @@ export function Projects() {
       <div className="relative z-20">
         <h2 className="text-3xl font-bold mb-6 text-center flex items-center justify-center bg-transparent">
           <Lightbulb className="w-8 h-8 mr-2 text-yellow-400" />
-          Side Projects
+          Projects
         </h2>
         <div className="max-w-4xl mx-auto overflow-y-auto max-h-[calc(100vh-180px)] px-2 sm:px-4 md:px-6 py-8 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
           <div className="max-w-2xl mx-auto">
