@@ -12,7 +12,7 @@ export function Projects() {
           <div className="max-w-2xl mx-auto">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-2 text-blue-300">Portfolio</h3>
+                <h3 className="text-2xl font-semibold mb-2 text-blue-300">Portfolio Site</h3>
                 <div className="flex items-center">
                   <Code className="w-5 h-5 mr-2 text-yellow-400" />
                   <a

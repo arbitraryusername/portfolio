@@ -1,34 +1,51 @@
-import { User } from "lucide-react"
+import { User, Code, Heart, Music, Dumbbell, Rocket, GraduationCap } from "lucide-react"
 
 export function About() {
   return (
     <div className="text-blue-100 pt-20">
       <div className="relative z-20">
-        <h2 className="text-3xl font-bold mb-6 text-center flex items-center justify-center bg-transparent">
+        <h2 className="text-3xl font-bold mb-6 md:mb-12 text-center flex items-center justify-center bg-transparent">
           <User className="w-8 h-8 mr-2 text-yellow-400" />
-          About Me
+          About
         </h2>
-        <div className="max-w-4xl mx-auto overflow-y-auto max-h-[calc(100vh-180px)] p-8 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
-          <div className="max-w-2xl mx-auto">
-            <section>
-              <h3 className="text-xl font-semibold mb-2 text-blue-300">Personal Life</h3>
-              <p className="mb-4">
-                In my free time I love to code side projects and follow the latest news in AI, web technologies, and
-                scientific fields like astronomy. I write songs, play piano, DJ, and rap. To stay fit I enjoy hiking,
-                running, and indoor rock climbing. Most importantly, I love spending time with my wife and daughter!
+        
+        <div className="max-w-4xl mx-auto px-4 md:px-0 overflow-y-auto max-h-[calc(100vh-180px)] pb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center max-w-[calc(66%+1.5rem)] mx-auto">
+            {/* Family */}
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] w-full">
+              <Heart className="w-10 h-10 text-blue-300 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-blue-300">Family Man</h3>
+              <p className="text-sm text-blue-100">
+                Husband, Father, Brother
               </p>
-            </section>
-            <section className="mb-6">
-              <h3 className="text-xl font-semibold mb-2 text-blue-300">Professional Life</h3>
-              <p>
-                As a Senior Full Stack Engineer with a strong background in physics and computer science, I bring
-                exceptional analytical and mathematical skills to software development. My extensive experience spans a
-                variety of programming languages and modern web technologies. I have a knack for writing maintainable,
-                scalable, and well-tested code, ensuring robust and efficient applications. My aptitude for quick
-                learning and adopting new technologies allows me to consistently speed up development processes and stay
-                at the forefront of industry trends.
+            </div>
+
+            {/* Background/Education */}
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] w-full">
+              <GraduationCap className="w-10 h-10 text-blue-300 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-blue-300">Science Nerd</h3>
+              <p className="text-sm text-blue-100">
+                Physics, Astronomy, Meteorology
               </p>
-            </section>
+            </div>
+
+            {/* Music */}
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] w-full">
+              <Music className="w-10 h-10 text-blue-300 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-blue-300">Musician</h3>
+              <p className="text-sm text-blue-100">
+                Composer, Piano Player, DJ
+              </p>
+            </div>
+
+            {/* Fitness */}
+            <div className="bg-gray-900 bg-opacity-40 backdrop-blur-sm p-6 rounded-xl flex flex-col items-center text-center border border-blue-900/30 max-w-[350px] w-full">
+              <Dumbbell className="w-10 h-10 text-blue-300 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-blue-300">Active Adult</h3>
+              <p className="text-sm text-blue-100">
+                Hiker, Runner, Rock Climber
+              </p>
+            </div>
           </div>
         </div>
       </div>

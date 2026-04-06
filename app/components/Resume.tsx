@@ -31,18 +31,18 @@ export function Resume() {
         <Code className="w-10 h-10 md:w-12 md:h-12 text-blue-300 mb-4" />
         <h3 className="text-xl md:text-2xl font-semibold mb-2 text-center text-blue-300">Languages</h3>
         <ul className="list-disc text-blue-100 text-left pl-4">
-          <li>C#, Python, Java</li>
-          <li>JS/TS, HTML, CSS</li>
-          <li>SQL, JSON, C++</li>
+          <li>C#, Python, SQL</li>
+          <li>TypeScript, HTML, CSS</li>
+          <li>Go, Java, Kotlin, C++</li>
         </ul>
       </div>
       <div className="bg-gray-800 bg-opacity-50 p-4 md:p-6 rounded-lg flex flex-col items-center">
         <Server className="w-10 h-10 md:w-12 md:h-12 text-blue-300 mb-4" />
         <h3 className="text-xl md:text-2xl font-semibold mb-2 text-center text-blue-300">Backend</h3>
         <ul className="list-disc text-blue-100 text-left pl-4">
-          <li>ASP.NET, .NET (C#)</li>
+          <li>.NET, Blazor (C#)</li>
           <li>Flask, FastAPI (Python)</li>
-          <li>GraphQL, RabbitMQ</li>
+          <li>RabbitMQ, GraphQL</li>
         </ul>
       </div>
       <div className="bg-gray-800 bg-opacity-50 p-4 md:p-6 rounded-lg flex flex-col items-center">
@@ -87,7 +87,7 @@ export function Resume() {
   return (
     <div className="text-blue-100 pt-20 min-h-screen flex flex-col">
       <div className="relative z-20">
-        <h2 className="text-3xl font-bold mb-3 text-center flex items-center justify-center bg-transparent">
+        <h2 className="text-3xl font-bold mb-3 md:mb-10 text-center flex items-center justify-center bg-transparent">
           <FileText className="w-8 h-8 mr-2 text-yellow-400" />
           Resume
         </h2>
@@ -95,7 +95,7 @@ export function Resume() {
         <div className="flex-grow overflow-y-auto pb-10">
           {" "}
           {/* Update 1 */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-4 mb-6 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 py-4 md:pb-8 mb-6 rounded-xl bg-gray-900 bg-opacity-30 backdrop-blur-sm">
             {" "}
             {/* Update 3 */}
             {showFullResume ? (
@@ -382,9 +382,8 @@ export function Resume() {
                 </section>
               </div>
             ) : (
-              <div className="max-h-[calc(100vh-220px)] overflow-y-auto pr-4">
+              <div className="max-h-[calc(100vh-220px)] overflow-y-auto">
                 {" "}
-                {/* Update 2 */}
                 <InfographicSummary />
               </div>
             )}

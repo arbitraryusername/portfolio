@@ -1,4 +1,4 @@
-import { User, Mail, FileText, Lightbulb } from "lucide-react"
+import { User, Mail, Lightbulb, Cpu } from "lucide-react"
 
 interface NavigationProps {
   setCurrentSection: (section: string) => void
@@ -6,7 +6,7 @@ interface NavigationProps {
 
 export function Navigation({ setCurrentSection }: NavigationProps) {
   const navItems = [
-    { name: "Resume", icon: FileText, section: "resume" },
+    { name: "Skills", icon: Cpu, section: "skills" },
     { name: "Projects", icon: Lightbulb, section: "projects" },
     { name: "About", icon: User, section: "about" },
     { name: "Contact", icon: Mail, section: "contact" },

@@ -7,7 +7,7 @@ import { MoonButton } from "./components/MoonButton"
 import { Home } from "./components/Home"
 import { About } from "./components/About"
 import { Contact } from "./components/Contact"
-import { Resume } from "./components/Resume"
+import { Skills } from "./components/Skills"
 import { Projects } from "./components/Projects"
 
 export default function Page() {
@@ -21,8 +21,8 @@ export default function Page() {
         return <About />
       case "contact":
         return <Contact />
-      case "resume":
-        return <Resume />
+      case "skills":
+        return <Skills />
       case "projects":
         return <Projects />
       default:
