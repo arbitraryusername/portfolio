@@ -2,7 +2,7 @@ import { Mail, Linkedin } from "lucide-react"
 
 export function Contact() {
   return (
-    <div className="text-blue-100 pt-20 min-h-screen flex flex-col">
+    <div className="text-blue-100 flex flex-col justify-start md:justify-center min-h-screen pt-20 md:pt-0">
       <div className="relative z-20">
         <h2 className="text-3xl font-bold mb-6 md:mb-12 text-center flex items-center justify-center bg-transparent">
           <Mail className="w-8 h-8 mr-2 text-yellow-400" />

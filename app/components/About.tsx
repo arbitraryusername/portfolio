@@ -2,7 +2,7 @@ import { User, Code, Heart, Music, Dumbbell, Rocket, GraduationCap } from "lucid
 
 export function About() {
   return (
-    <div className="text-blue-100 pt-20">
+    <div className="text-blue-100 flex flex-col justify-start md:justify-center min-h-screen pt-20 md:pt-0">
       <div className="relative z-20">
         <h2 className="text-3xl font-bold mb-6 md:mb-12 text-center flex items-center justify-center bg-transparent">
           <User className="w-8 h-8 mr-2 text-yellow-400" />
