@@ -27,13 +27,7 @@ export function FireflyBackground() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-
-    resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
+    const fireflies: Firefly[] = []
 
     const getFireflyCount = () => {
       const width = window.innerWidth
@@ -42,30 +36,64 @@ export function FireflyBackground() {
       return 70                     // Default
     }
 
-    const fireflies: Firefly[] = []
+    const createFirefly = (): Firefly => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 1.5 + 1.1, // Slightly smaller, more delicate
+      vx: (Math.random() - 0.5) * 0.2, // Base velocity
+      vy: (Math.random() - 0.5) * 0.2,
+      brightness: 1,
+      color: Math.random() > 0.5 ? "#4a9ff5" : "#f5dd4a", // Colors without alpha (we'll use globalAlpha)
+      flickerOffset: Math.random() * 2,
+      phaseOffset: Math.random() * Math.PI * 2,
+      isExtraBright: false,
+      glowDuration: 0,
+      glowTimer: 0,
+    })
+
+    const resizeCanvas = () => {
+      const previousWidth = canvas.width
+      const previousHeight = canvas.height
+
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+
+      if (!fireflies.length || !previousWidth || !previousHeight) {
+        return
+      }
+
+      const widthRatio = canvas.width / previousWidth
+      const heightRatio = canvas.height / previousHeight
+
+      fireflies.forEach((firefly) => {
+        firefly.x *= widthRatio
+        firefly.y *= heightRatio
+      })
+
+      const desiredCount = getFireflyCount()
+      if (fireflies.length < desiredCount) {
+        while (fireflies.length < desiredCount) {
+          fireflies.push(createFirefly())
+        }
+      } else if (fireflies.length > desiredCount) {
+        fireflies.length = desiredCount
+      }
+    }
+
+    resizeCanvas()
+    window.addEventListener("resize", resizeCanvas)
+
     const fireflyCount = getFireflyCount() // Increased count for better sweeping effect
 
     for (let i = 0; i < fireflyCount; i++) {
-      fireflies.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 1.1, // Slightly smaller, more delicate
-        vx: (Math.random() - 0.5) * 0.2, // Base velocity
-        vy: (Math.random() - 0.5) * 0.2,
-        brightness: 1,
-        color: Math.random() > 0.5 ? "#4a9ff5" : "#f5dd4a", // Colors without alpha (we'll use globalAlpha)
-        flickerOffset: Math.random() * 2,
-        phaseOffset: Math.random() * Math.PI * 2,
-        isExtraBright: false,
-        glowDuration: 0,
-        glowTimer: 0,
-      })
+      fireflies.push(createFirefly())
     }
 
     let windAngle = Math.random() * Math.PI * 2
     let targetWindAngle = windAngle
     let windStrength = 0.5
     let timeSinceLastWindChange = 0
+    let animationId = 0
 
     const animate = (time: number) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -142,10 +170,10 @@ export function FireflyBackground() {
         ctx.restore()
       })
 
-      requestAnimationFrame(animate)
+      animationId = requestAnimationFrame(animate)
     }
 
-    const animationId = requestAnimationFrame(animate)
+    animationId = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener("resize", resizeCanvas)
